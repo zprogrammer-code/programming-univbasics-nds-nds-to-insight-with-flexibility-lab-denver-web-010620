@@ -58,7 +58,7 @@ def gross_per_studio(collection)
    studio = collection[row_index][:studio]
    gross = collection[row_index][:worldwide_gross]
    total_gross += gross
- binding.pry
+ 
   result[studio] = total_gross
    row_index += 1 
  end
