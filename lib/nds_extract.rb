@@ -89,7 +89,7 @@ def movies_with_directors_set(source)
 result << movies_with_director_key(name, movie)
    row_index += 1 
  end
- binding.pry
+ 
 return result
  # GOAL: For each director, find their :movies Array and stick it in a new Array
   #
