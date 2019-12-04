@@ -68,10 +68,12 @@ pp directors_database
 def movies_with_directors_set(source)
  result = []
  row_index = 0 
- name = source[row_index][:name]
  while row_index < source.length do
-result << source[row_index]
-  result[name] = result[:director_name]
+#result << source[row_index]
+ name = source[row_index][:name]
+ movie = source[row_index][:movies]
+result << movies_with_director_key(name, movie)
+  
 
 
  row_index += 1 
