@@ -51,6 +51,22 @@ end
 end
 
 def gross_per_studio(collection)
+ result = {}
+ row_index = 0 
+
+ while row_index < collection.length do 
+   studio = collection[row_index][:studio]
+   total_gross = collection[row_index][:worldwide_gross]
+   if !result[studio]
+     result[studio] = total_gross
+   else
+     result[studio] += total_gross
+    end
+   row_index += 1 
+ end
+ 
+ return result
+ 
   # GOAL: Given an Array of Hashes where each Hash represents a movie,
   # return a Hash that includes the total worldwide_gross of all the movies from
   # each studio.
@@ -68,16 +84,15 @@ pp directors_database
 def movies_with_directors_set(source)
  result = []
  row_index = 0 
- name = source[row_index][:name]
  while row_index < source.length do
-result << source[row_index]
-  result[name] = result[:director_name]
-
-
- row_index += 1 
+#result << source[row_index]
+ name = source[row_index][:name]
+ movie = source[row_index][:movies]
+result << movies_with_director_key(name, movie)
+   row_index += 1 
  end
-binding.pry
- return result
+ 
+return result
  # GOAL: For each director, find their :movies Array and stick it in a new Array
   #
   # INPUT:
